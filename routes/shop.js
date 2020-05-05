@@ -9,7 +9,11 @@ router.get("/", (req, res, next) => {
   // res.sendFile(path.join(__dirname, "../", "views", "shop.html"));
 
   // using pug te,plate engine
-  res.render("shop", { prods: adminData.products, docTitle: "My Shop" });
+  res.render("shop", {
+    prods: adminData.products,
+    pageTitle: "My Shop",
+    path: "/"
+  });
 });
 
 module.exports = router;
