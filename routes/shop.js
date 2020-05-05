@@ -6,8 +6,10 @@ router.get("/", (req, res, next) => {
   console.log(adminData.products);
   //   res.send("<h1>Home Page!</h1>");
   // send html file view //
-  //   res.sendFile("./views/shop.html"); // giving err
-  res.sendFile(path.join(__dirname, "../", "views", "shop.html"));
+  // res.sendFile(path.join(__dirname, "../", "views", "shop.html"));
+
+  // using pug te,plate engine
+  res.render("shop", { prods: adminData.products, docTitle: "My Shop" });
 });
 
 module.exports = router;

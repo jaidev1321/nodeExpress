@@ -19,7 +19,10 @@ router.get("/add-product", (req, res, next) => {
   // serving html page to view
 
   //   res.sendFile(path.join(__dirname, "../", "views", "add-product.html"));
-  res.sendFile(path.join(rootDir, "views", "add-product.html"));
+  // res.sendFile(path.join(rootDir, "views", "add-product.html"));
+
+  // with pug
+  res.render("add-product", { pageTitle: "Add Product" });
 });
 exports.router = router;
 exports.products = products;
