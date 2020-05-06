@@ -13,10 +13,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // 5-may-2020
 // working with handlebars
-const expressHbs = require("express-handlebars");
-app.engine("handlebars", expressHbs()); // registerting handlebars to express
-app.set("view engine", "handlebars"); // telling express view engine to use handlebars ext as view files
-app.set("views", "views"); // telling express to find view files from view folder
+// const expressHbs = require("express-handlebars");
+// app.engine("handlebars", expressHbs()); // registerting handlebars to express
+// app.set("view engine", "handlebars"); // telling express view engine to use handlebars ext as view files
+// app.set("views", "views"); // telling express to find view files from view folder
+
+// working with ejs //best option
+app.set("view engine", "ejs");
+app.set("views", "views");
 
 //adding a public dir
 app.use(express.static(path.join(__dirname, "public")));
@@ -31,6 +35,6 @@ app.use((req, res, next) => {
   // res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 
   // with pug
-  res.status(404).render("404", { pageTitle: "Page Not Found handlebar" });
+  res.status(404).render("404", { pageTitle: "Page Not Found", path: "/" });
 });
 app.listen(3000);
